@@ -1,19 +1,19 @@
 add_executable(main 
     main.cpp
-    application.hpp application.cpp
-    mesh.hpp mesh.cpp
-    shader.hpp shader.cpp
-    image.hpp image.inl image.cpp
-    texture.hpp texture.cpp
-    framebuffer.hpp framebuffer.cpp
-    renderbuffer.hpp renderbuffer.cpp
-    noisegeneration.hpp noisegeneration.cpp
-    camera.hpp camera.cpp
-    meshgeneration.hpp meshgeneration.cpp
-    hermite.hpp hermite.cpp
-    water.hpp water.cpp
-    skybox.hpp skybox.cpp
-    light.hpp
+    headers/application.hpp application.cpp
+    headers/mesh.hpp mesh.cpp
+    headers/shader.hpp shader.cpp
+    headers/image.hpp headers/image.inl image.cpp
+    headers/texture.hpp texture.cpp
+    headers/framebuffer.hpp framebuffer.cpp
+    headers/renderbuffer.hpp renderbuffer.cpp
+    headers/noisegeneration.hpp noisegeneration.cpp
+    headers/camera.hpp camera.cpp
+    headers/meshgeneration.hpp meshgeneration.cpp
+    headers/hermite.hpp hermite.cpp
+    headers/water.hpp water.cpp
+    headers/skybox.hpp skybox.cpp
+    headers/light.hpp
 )
 
 target_link_libraries(main PRIVATE glad::glad glfw glm::glm imgui::imgui)

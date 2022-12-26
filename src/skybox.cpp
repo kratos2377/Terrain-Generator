@@ -2,10 +2,10 @@
 
 #include <glm/glm.hpp>
 
-#include "mesh.hpp"
-#include "shader.hpp"
-#include "skybox.hpp"
-#include "texture.hpp"
+#include "headers/mesh.hpp"
+#include "headers/shader.hpp"
+#include "headers/skybox.hpp"
+#include "headers/texture.hpp"
 
 Skybox::Skybox()
 {

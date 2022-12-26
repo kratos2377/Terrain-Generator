@@ -1,4 +1,4 @@
-#include "image.hpp"
+#include "headers/image.hpp"
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION

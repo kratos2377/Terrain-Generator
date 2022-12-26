@@ -1,4 +1,4 @@
-#include "application.hpp"
+#include "headers/application.hpp"
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
@@ -16,13 +16,13 @@
 #include <stdexcept>
 #include <string>
 
-#include "framebuffer.hpp"
-#include "mesh.hpp"
-#include "meshgeneration.hpp"
-#include "shader.hpp"
-#include "skybox.hpp"
-#include "texture.hpp"
-#include "water.hpp"
+#include "headers/framebuffer.hpp"
+#include "headers/mesh.hpp"
+#include "headers/meshgeneration.hpp"
+#include "headers/shader.hpp"
+#include "headers/skybox.hpp"
+#include "headers/texture.hpp"
+#include "headers/water.hpp"
 
 Application::Application(int window_width, int window_height, std::string_view title) :
     width_{window_width}, height_{window_height}, aspect_ratio_{static_cast<float>(width_) / height_}

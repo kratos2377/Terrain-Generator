@@ -1,4 +1,4 @@
-#include "hermite.hpp"
+#include "headers/hermite.hpp"
 
 #include <algorithm>
 #include <cassert>

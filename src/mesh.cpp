@@ -2,7 +2,7 @@
 
 #include <glad/glad.h>
 
-#include "mesh.hpp"
+#include "headers/mesh.hpp"
 
 Mesh::Mesh(std::vector<float> vertices_data, std::vector<int> attributes_sizes) :
     attributes_sizes_{std::move(attributes_sizes)}, stride_{std::accumulate(attributes_sizes_.cbegin(),

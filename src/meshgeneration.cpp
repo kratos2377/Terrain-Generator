@@ -1,9 +1,9 @@
-#include "meshgeneration.hpp"
+#include "headers/meshgeneration.hpp"
 
 #include <cassert>
 
-#include "hermite.hpp"
-#include "mesh.hpp"
+#include "headers/hermite.hpp"
+#include "headers/mesh.hpp"
 
 std::pair<std::vector<float>, std::vector<std::uint32_t>> grid_mesh(int width, int height,
                                                                     const Image<float>& height_map,

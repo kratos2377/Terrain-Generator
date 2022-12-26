@@ -1,11 +1,11 @@
-#include "water.hpp"
+#include "headers/water.hpp"
 
 #include <cmath>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "camera.hpp"
-#include "light.hpp"
+#include "headers/camera.hpp"
+#include "headers/light.hpp"
 
 Water::Water(int plane_scale) : plane_scale_{static_cast<float>(plane_scale)}
 {

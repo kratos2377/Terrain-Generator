@@ -1,4 +1,4 @@
-#include "framebuffer.hpp"
+#include "headers/framebuffer.hpp"
 
 #include <exception>
 #include <iostream>
