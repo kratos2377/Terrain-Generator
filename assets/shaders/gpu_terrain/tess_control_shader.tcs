@@ -1,0 +1,51 @@
+#version 450 core
+
+layout (vertices = 4) out;
+
+in vec2 vertex_tex_coordinates[]; 
+
+out vec2 tcs_tex_coordinates[];
+
+const int min_tess_level = 4;
+const int max_tess_level = 16;
+const float min_distance = 50.0;
+const float max_distance = 200.0;
+
+uniform mat4 model_view;
+
+float clamp_distance(float distance)
+{
+    return clamp((abs(distance) - min_distance) / (max_distance - min_distance), 0.0, 1.0);
+}
+
+void main()
+{
+    gl_out[gl_InvocationID].gl_Position = gl_in[gl_InvocationID].gl_Position;
+    tcs_tex_coordinates[gl_InvocationID] = vertex_tex_coordinates[gl_InvocationID];
+
+    if (gl_InvocationID == 0)
+    {
+        vec4 view_p00 = model_view * gl_in[0].gl_Position;
+        vec4 view_p10 = model_view * gl_in[1].gl_Position;
+        vec4 view_p11 = model_view * gl_in[2].gl_Position;
+        vec4 view_p01 = model_view * gl_in[3].gl_Position;
+
+        float distance_p00 = clamp_distance(view_p00.z);
+        float distance_p10 = clamp_distance(view_p10.z);
+        float distance_p11 = clamp_distance(view_p11.z);
+        float distance_p01 = clamp_distance(view_p01.z);
+
+        float tess_level_left = mix(max_tess_level, min_tess_level, min(distance_p00, distance_p01));
+        float tess_level_bottom = mix(max_tess_level, min_tess_level, min(distance_p00, distance_p10));
+        float tess_level_right = mix(max_tess_level, min_tess_level, min(distance_p10, distance_p11));
+        float tess_level_top = mix(max_tess_level, min_tess_level, min(distance_p01, distance_p11));
+
+        gl_TessLevelOuter[0] = tess_level_left;
+        gl_TessLevelOuter[1] = tess_level_bottom;
+        gl_TessLevelOuter[2] = tess_level_right;
+        gl_TessLevelOuter[3] = tess_level_top;
+
+        gl_TessLevelInner[0] = max(tess_level_bottom, tess_level_top);
+        gl_TessLevelInner[1] = max(tess_level_left, tess_level_right);
+    }
+}

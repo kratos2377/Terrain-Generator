@@ -1,0 +1,65 @@
+#version 450 core
+
+layout (quads, equal_spacing, ccw) in;
+
+in vec2 tcs_tex_coordinates[];
+
+out float tes_height;
+out vec2 tes_tex_coords;
+out vec3 tes_frag_pos;
+out vec3 tes_normal;
+
+layout (binding = 0) uniform sampler2D heightmap_sampler;
+layout (binding = 1) uniform sampler2D normal_map_sampler;
+uniform mat4 model;
+uniform mat4 mvp;
+uniform float elevation;
+uniform vec4 clip_plane;
+
+void main()
+{
+    vec4 p00 = gl_in[0].gl_Position;
+    vec4 p10 = gl_in[1].gl_Position;
+    vec4 p11 = gl_in[2].gl_Position;
+    vec4 p01 = gl_in[3].gl_Position;
+
+    float u = gl_TessCoord.x;
+    float v = gl_TessCoord.y;
+
+    vec4 p0 = mix(p00, p10, u);
+    vec4 p1 = mix(p01, p11, u);
+    vec4 position = mix(p0, p1, v);
+    /*gl_Position =
+        p00 * (1.0-u) * (1.0-v) +
+        p10 * u * (1.0-v) +
+        p01 * v * (1.0-u) +
+        p11 * u * v;*/
+    
+    vec2 t00 = tcs_tex_coordinates[0];
+    vec2 t10 = tcs_tex_coordinates[1];
+    vec2 t11 = tcs_tex_coordinates[2];
+    vec2 t01 = tcs_tex_coordinates[3];
+    vec2 t0 = mix(t00, t10, u);
+    vec2 t1 = mix(t01, t11, u);
+    vec2 interpolated_tex_coordinates = mix(t0, t1, v);
+    
+    vec4 texel = texture(heightmap_sampler, interpolated_tex_coordinates);
+    tes_height = texel.r;
+    position.y = elevation * tes_height;
+
+    tes_tex_coords = interpolated_tex_coordinates;
+    vec4 world_position = model * position;
+    
+    gl_ClipDistance[0] = dot(world_position, clip_plane);
+
+    tes_frag_pos = (world_position).xyz;
+
+    // Fetch normal vector from normal map
+    // Swap B and G, because our height is on Y-axis, not Z-axis
+    vec3 normal_rbg = texture(normal_map_sampler, tes_tex_coords).rbg;
+    vec3 normal = normal_rbg * 2.0 - 1.0;
+    //tes_normal = mat3(transpose(inverse(model))) * normal;
+    tes_normal = normal;
+
+    gl_Position = mvp * position;
+}
