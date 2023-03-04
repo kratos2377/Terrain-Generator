@@ -9,7 +9,7 @@ int main()
     std::srand(0);
     try
     {
-        Application application{1024, 768, "Procedural Terrain Generation"};
+        Application application{1024, 768, "Terrain-Generator"};
         application.run();
     }
     catch (const std::exception& exception)

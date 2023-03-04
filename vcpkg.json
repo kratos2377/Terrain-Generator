@@ -1,5 +1,5 @@
 {
-    "name": "procedural-terrain-generation",
+    "name": "terrain-generator",
     "version": "1.0",
     "dependencies": 
     [
