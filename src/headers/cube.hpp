@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../drawable.hpp"
+#include "drawable.hpp"
 
 namespace {
     static float vertex_attributes[] = {

@@ -7,8 +7,8 @@
 
 #include "glm/glm.hpp"
 
-#include "../drawable.hpp"
-#include "../perlin.hpp"
+#include "drawable.hpp"
+#include "perlin.hpp"
 
 struct GenerationSettings {
     int seed;

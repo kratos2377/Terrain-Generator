@@ -3,12 +3,12 @@
 #include "glad/glad.h"
 #include "glm/mat4x4.hpp"
 
-#include "shaders/mvm.vert"
-#include "shaders/mvm.frag"
-#include "shaders/light_mvm.vert"
-#include "shaders/light_mvm.frag"
-#include "shaders/terrain.vert"
-#include "shaders/terrain.frag"
+#include "../shaders/mvm.vert"
+#include "../shaders/mvm.frag"
+#include "../shaders/light_mvm.vert"
+#include "../shaders/light_mvm.frag"
+#include "../shaders/terrain.vert"
+#include "../shaders/terrain.frag"
 
 namespace Shaders {
     struct Mvm {
