@@ -237,8 +237,12 @@ void ShaderProgram::set_vec2_uniform(const std::string& uniform_name, const glm:
 void ShaderProgram::set_vec2_array_uniform(const std::string& uniform_name, const std::vector<glm::vec2>& value,
                                            GLsizei count)
 {
+    
     assert(uniform_locations_.contains(uniform_name));
-    glProgramUniform2fv(program_id_, uniform_locations_[uniform_name], count, glm::value_ptr(value.front()));
+    if(value.size() > 0){
+        std::cout<<"SADASDGASYGDSHADJHASIDHAGHSDHASDGYGFSHFHASGDYAGSDGASDGYASGDASGDASDHGSADGASDGASDGYASD"<<std::endl;
+           glProgramUniform2fv(program_id_, uniform_locations_[uniform_name], count, glm::value_ptr(value.front()));
+    }
 }
 
 void ShaderProgram::set_vec3_uniform(const std::string& uniform_name, float x, float y, float z)

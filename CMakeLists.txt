@@ -9,7 +9,7 @@ FetchContent_MakeAvailable(vcpkg)
  
 set(CMAKE_TOOLCHAIN_FILE "${vcpkg_SOURCE_DIR}/scripts/buildsystems/vcpkg.cmake" CACHE FILEPATH "")
  
-project(procedural-terrain LANGUAGES CXX)
+project(terrain-generator LANGUAGES CXX)
 
 # Dependencies
 find_package(glfw3 CONFIG REQUIRED)

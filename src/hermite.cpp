@@ -11,11 +11,12 @@ CubicHermiteCurve::CubicHermiteCurve(std::vector<glm::vec2> points, std::vector<
 
 glm::vec2 CubicHermiteCurve::evaluate(float parameter) const
 {
+    
     assert(parameter >= ranges_.front());
     assert(parameter <= ranges_.back());
 
     std::size_t curve_index{0};
-    if (parameter == ranges_.front())
+    if (ranges_.size() > 0 && parameter == ranges_.front())
     {
         curve_index = 1;
     }

@@ -258,8 +258,8 @@ void Application::initialize_terrain()
 
     std::vector<std::string_view> normal_names{
         "assets/textures/terrain/normal/river_rock1_Normal-dx.png",
-        "assets/textures/terrain/normal/slate2-tiled-normal3-UE4.png",
-        "assets/textures/terrain/normal/rock-snow-ice1-2k_Normal-dx.png",
+        "assets/textures/terrain/normal/slate2-tiled-ogl.png",
+        "assets/textures/terrain/normal/rock-snow-ice1-2k_Normal-ogl.png",
     };
     terrain_normal_maps_ =
         std::make_unique<Texture>(create_arraytexture_from_file(normal_names, terrain_texture_attributes));

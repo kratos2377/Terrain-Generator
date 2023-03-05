@@ -2,8 +2,9 @@
 
 #include <algorithm>
 #include <cassert>
-#include <glm/glm.hpp>
 #include <stb_image.h>
+#include <glm/glm.hpp>
+
 #include <stdexcept>
 
 Texture::Texture(std::uint32_t width, std::uint32_t height, Attributes attributes) :
