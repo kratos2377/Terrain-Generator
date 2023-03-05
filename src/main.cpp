@@ -23,7 +23,7 @@ constexpr auto GRID_SIZE = 150;
 auto camera_settings = CameraSettings(CameraDefault::ZOOM, WINDOW_WIDTH / WINDOW_HEIGHT, 0.1, 1000.0);
 auto camera = Camera<Perspective>(camera_settings, glm::vec3(-50.0f, 60.0f, GRID_SIZE / 2.0f), glm::vec3(0.0, 1.0, 0.0), 0.0, -35.0);
 
-Window window(WINDOW_WIDTH, WINDOW_HEIGHT, "Procedural Terrain Generation");
+Window window(WINDOW_WIDTH, WINDOW_HEIGHT, "Terrain Generator");
 
 bool focus = true;
 
@@ -159,7 +159,7 @@ int main() try {
         glm::mat4 view = camera.get_view_matrix();
         glm::mat4 projection = camera.get_projection();
 
-        ImGui::Begin("Procedural Generation Renderer");
+        ImGui::Begin("Terrain Renderer");
 
         ImGui::Text("Edit Configuration Parameters");
 
