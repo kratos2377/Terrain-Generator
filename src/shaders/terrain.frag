@@ -21,7 +21,7 @@ static constexpr std::string_view TerrainFrag = R"(
     void main()
     {
         // Ambient lighting
-        float ambient_strength = 0.25;
+        float ambient_strength = 0.55;
         vec3 ambient = ambient_strength * light_color;
 
         // diffuse 
