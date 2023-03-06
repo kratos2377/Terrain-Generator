@@ -43,4 +43,4 @@ You can find result in build/src folder.
 The final result will look like this:
 ![procedural-terrain-generation example](https://github.com/kratos2377/Terrain-Generator/blob/main/results/image_1.jpeg)
 
-![procedural-terrain-generation video](https://user-images.githubusercontent.com/33194613/223132573-a69180b8-c9b8-46ec-8626-abf6203d6f73.mp4)
+https://user-images.githubusercontent.com/33194613/223132573-a69180b8-c9b8-46ec-8626-abf6203d6f73.mp4
